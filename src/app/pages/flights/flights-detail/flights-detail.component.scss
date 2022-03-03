@@ -1,0 +1,124 @@
+
+@import '../../../styles/_variables';
+
+
+*{
+  background-color: $bg-light;
+}
+.container{
+  margin-top: 1%;
+  margin-bottom: 1% ;
+  // border: 1px solid red;
+  border: 1px solid rgb(224, 224, 224);;
+  box-shadow: 5px 5px rgb(224, 224, 224);
+  &__header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__header__container-logo{
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    &-img{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  }
+  &__header-description{
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: justify;
+    height: auto;
+    display: flex;
+    align-items: center;
+
+    &-littleinfo{
+      display: flex;
+      width: 100%;
+    }
+    & h3{
+      font-size: 0.9rem;
+    }
+    &-text{
+      color: $primary-color;
+    }
+    &-details{
+      width: 100%;
+      & h3{
+        font-size: 0.7rem;
+      }
+    }
+    &-details-text{
+      color: $primary-color;
+    }
+  }
+  &__img{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    & img{
+    width: 98%;
+    height: 96%;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+    }
+  }
+  &__subtext{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 7%;
+  }
+  &__weather{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+    &-header{
+      width: 100%;
+      height: 30%;
+      & img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-text{
+      width: 100%;
+      height: auto;
+      padding: 5px;
+      & span{
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+    &-icon{
+      width: 100%;
+      height: auto;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img{
+        width: 30%;
+      }
+    }
+  }
+  & h3 {
+    font-weight: bold;
+  };
+}

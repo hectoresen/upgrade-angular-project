@@ -1,0 +1,29 @@
+
+@import '../../../../../styles/_variables';
+
+.finder {
+  display: flex;
+  flex-direction: row;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+
+  &__toggle {
+    margin-bottom: 1%;
+  }
+
+  &__label{
+    color: white;
+  }
+  &__input::placeholder{
+    font-size: 0.5rem;
+    color: white;
+    font-style: italic;
+  }
+}
+
+
+

@@ -1,0 +1,21 @@
+
+  <div class="finder">
+    <form class="form" novalidate [formGroup]="inputFinder" (ngSubmit)="searchFlight()">
+  <!--     <label for="origin">
+        <input formControlName="origin" type="text" placeholder="Desde donde quieres volar">
+      </label> -->
+      <mat-form-field appearance="fill">
+        <mat-label class="form__label">Origen</mat-label>
+        <input class="form__input" matInput formControlName="origin" type="text" placeholder="Desde donde quieres volar">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label class="form__label">Destino</mat-label>
+        <input class="form__input" matInput formControlName="destination" type="text" placeholder="A donde deseas volar">
+      </mat-form-field>
+      <mat-slide-toggle class="form__toggle" (click)="directFlightToggle()">¿Buscas un vuelo directo?</mat-slide-toggle>
+      <mat-slide-toggle class="form__toggle" (click)="handLugaggeToggle()">¿Equipaje de mano incluído?</mat-slide-toggle>
+      <app-button [name]="'Buscar'"></app-button>
+    </form>
+  </div>
+
+

@@ -1,0 +1,41 @@
+@import '../../../../styles/_variables';
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar{
+  &__menu{
+    background-color: $primary-color;
+    background-color: $primary-color;
+    min-height: 150px;
+  }
+  &__menu__title{
+    color: $detail-color-1;
+
+    & a {
+      text-decoration: none;
+      color: $detail-color-1;
+      font-size: 35px;
+    }
+  }
+  &__menu__icon{
+    margin: 0px 5px 0px 0px;
+  }
+  &__menu__link{
+    font-size: 1.0rem;
+    margin: 0px 15px 0px 0px;
+    text-decoration: none;
+    color: $white-text;
+  }
+  &__menu__link-mobile{
+    color: $black-text;
+    text-decoration: none;
+  }
+  &__menu__link:hover{
+    color: $detail-color-1;
+    transition: 0.4s;
+  }
+}

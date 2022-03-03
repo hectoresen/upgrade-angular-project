@@ -1,0 +1,139 @@
+@import '../../../styles/_variables';
+
+.filter{
+  display: flex;
+  justify-content: space-around;
+  background-image: url('https://media.discordapp.net/attachments/921716487692120084/924577659554529280/vuelo1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  &__input-search{
+    margin-top: 1%;
+    opacity: 80%;
+    background: rgba(5, 5, 5, 0.62);
+    margin-bottom: 1%;
+    border-radius: 4px;
+    padding: 1%;
+    box-shadow: 4px 5px 5px rgb(8, 8, 8);
+    -moz-box-shadow: 4px 5px 5px rgb(8, 8, 8);
+    -webkit-box-shadow: 4px 5px 5px rgb(8, 8, 8);
+    -khtml-box-shadow: 4px 5px 5px rgb(8, 8, 8);
+  }
+  &__input-search:hover{
+    opacity: 90%;
+  }
+  &__input-title{
+    display: flex;
+    justify-content: center;
+  }
+  &__transfers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  &__transfers__offer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 40%;
+    opacity: 80%;
+    border-radius: 4px;
+    background: rgba(5, 5, 5, 0.62);
+    box-shadow: 4px 5px 5px rgb(8, 8, 8);
+    -moz-box-shadow: 4px 5px 5px rgb(8, 8, 8);
+    -webkit-box-shadow: 4px 5px 5px rgb(8, 8, 8);
+    -khtml-box-shadow: 4px 5px 5px rgb(8, 8, 8);
+  }
+  &__transfers__offer__description{
+    width: 40%;
+  }
+  &__transfers__offer__description-text{
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .filter{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__transfers{
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+}
+
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: auto;
+
+  &__input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 30px;
+  }
+}
+
+
+.card {
+  width: 40%;
+  margin: 10px;
+  background-color: $primary-color;
+
+  display: flex;
+  flex-direction: column;
+
+
+  color: white;
+
+  &__img {
+    height: 250px;
+    width: auto;
+  }
+
+  &__subtitle {
+    color: white;
+  }
+
+  &__header-ryanair {
+    background-image: url('https://api.globaldatabase.com/logo/www.ryanair.com/');
+    background-size: cover;
+  }
+
+  &__header-vueling {
+    background-image: url('https://descuentocodigos.com/wp-content/uploads/2018/02/vueling-logo.jpg');
+    background-size: cover;
+  }
+
+  &__header-iberia {
+    background-image: url('https://www.aeropuertoinfo.com/wp-content/uploads/Logo-Iberia.png');
+    background-size: cover;
+  }
+
+  &__directFlight {
+    color: greenyellow;
+  }
+
+  &__stopoverflight {
+    color: red;
+  }
+
+  &__scales {
+    color: orange;
+  }
+}

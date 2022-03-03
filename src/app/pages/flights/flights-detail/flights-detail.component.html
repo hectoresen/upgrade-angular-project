@@ -1,0 +1,50 @@
+<app-loader></app-loader>
+
+
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: rem;">
+    <div class="container__card">
+      <div class="container__header">
+        <div class="container__header-description">
+          <div class="container__header-description-littleinfo">
+            <h3 class="card-text">Vuelo a <span class="container__header-description-text">{{flightDetail?.destination}}</span> con origen <span class="container__header-description-text">{{flightDetail?.origin}}</span></h3>
+            <!--           <h3 class="card-text"><i class="far fa-clock pe-2"></i>VUELO: {{flightDetail?.id}}</h3> -->
+          </div>
+          <div class= "container__header-description-details">
+            <h3 class="card-text">Salida el día: <span class="container__header-description-details-text">{{flightDetail?.flightData}}</span> a las <span class="container__header-description-details-text">{{flightDetail?.departureTime}}</span> y llegada prevista para las <span class="container__header-description-details-text">{{flightDetail?.arrivalTime}}</span></h3>
+            <h3 class="card-text">Precio <span class="container__header-description-details-text">{{flightDetail?.price | pipePrice}}</span></h3>
+          </div>
+        </div>
+        <div class="card-body d-flex flex-row container__header__container-logo">
+          <div class="container__header__container-logo-img">
+            <img src="{{flightDetail?.companyLogo}}" class="rounded-circle me-3" height="75px"
+            width="75px" alt="avatar" />
+          </div>
+        </div>
+      </div>
+      <div class="bg-image hover-overlay ripple rounded-0 container__img" data-mdb-ripple-color="light">
+        <img class="img-fluid" src="{{flightDetail?.cityImg}}"
+          alt="Card image cap" />
+      </div>
+      <div class="card-body">
+        <div class="container__subtext">
+          <h3 *ngIf="showScale" class="card-text"> Escala en: {{flightDetail?.scales?.firstScale}} {{flightDetail?.scales?.secondScale}}</h3>
+          </div>
+          <div class="container__weather"
+            *ngFor="let item of pruebaTiempo">
+            <div class="container__weather-header">
+              <img src="../../../../assets/weather.JPG">
+            </div>
+            <div class="container__weather-text">
+              <h4>El tiempo en <span>{{flightDetail?.destination}}</span></h4>
+              <h4>Temperatura: <span>{{item.temp_c}} &#8451; </span></h4>
+              <p>Probabilidad de precipitación <span>{{item.precip_in}}</span> %</p>
+            </div>
+            <div class="container__weather-icon">
+              <img src="{{item.condition.icon}}">
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </section>

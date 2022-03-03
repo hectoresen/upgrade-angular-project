@@ -1,0 +1,38 @@
+@import '../../../../styles/_variables';
+*{
+  color: white;
+}
+
+
+.card {
+  width: auto;
+  margin: 10px;
+  background-color: $primary-color;
+
+  &__img{
+    height: 250px;
+    width: 400px;
+  }
+
+  &__header-ryanair {
+    background-image: url('https://api.globaldatabase.com/logo/www.ryanair.com/');
+    background-size: cover;
+  }
+  &__header-vueling{
+    background-image: url('https://descuentocodigos.com/wp-content/uploads/2018/02/vueling-logo.jpg');
+    background-size: cover;
+  }
+  &__header-iberia{
+    background-image: url('https://www.aeropuertoinfo.com/wp-content/uploads/Logo-Iberia.png');
+    background-size: cover;
+  }
+  &__directFlight{
+    color: greenyellow;
+  }
+  &__stopoverflight{
+    color: red;
+  }
+  &__scales{
+    color: orange;
+  }
+}

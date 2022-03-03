@@ -1,0 +1,131 @@
+<!-- Prueba Jose -->
+
+<ng-template [ngIf]="!flightsCart">
+  <div class="row intro">
+    <div class="row intro__img">
+      <img src="../../../../assets/upgradeFly cesta.JPG">
+    </div>
+  </div>
+  <section class="container">
+    <mat-card *ngFor="let item of flightsList" class="example-card">
+      <mat-card-title-group class="example-card__title">
+        <!-- <mat-card-title>{{item.id}}</mat-card-title> -->
+        <mat-card-subtitle class="example-card__subtitle"> Destino: {{item.destination}}</mat-card-subtitle>
+        <mat-card-subtitle class="example-card__subtitle"> Origen: {{item.origin}}</mat-card-subtitle>
+        <mat-card-subtitle class="example-card__subtitle"> Precio: {{item.price}}</mat-card-subtitle>
+      </mat-card-title-group>
+      <img class="example-card__img" mat-card-image src={{item.cityImg}} alt="Photo of a plane">
+      <mat-card-content>
+        <p>Compañía: {{item.company}}</p>
+        <a class="example-card__offer" routerLink="../flights/{{item.id}}">Ir a la oferta</a>
+      </mat-card-content>
+      <div class="example-card__button">
+        <app-button [name]="'Añadir'" (click)="addToCart(this.item)"></app-button>
+      </div>
+    </mat-card>
+  </section>
+</ng-template>
+
+
+
+<!-- Carrito -->
+<ng-template class="general" [ngIf]="flightsCart">
+  <div class="carrito">
+    <div class="carrito__general">
+      <div class="card mb-3 mx-auto" style="max-width: 540px;" *ngFor="let item of shoppingCart.cartList">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{item.cityImg}}" alt="Flights" class="img-fluid" />
+            <img class="cart__img" src="{{item.companyLogo}}" alt="companyLogo">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body cart">
+              <!-- <div mat-card-avatar class="cart__company__logo"></div> -->
+              <h5 class="card-title">Destino: {{item.destination}}</h5>
+              <p class="cart__description__text">
+                Hora de salida <span class="cart__departure__time">{{item.departureTime}}</span>
+              </p>
+              <p class="cart__description__text">
+                Hora de llegada <span class="cart__arrival__time">{{item.arrivalTime}}</span>
+              </p>
+              <p class="cart__description__text">
+                Precio <span class="cart__arrival__time">{{item.price}} €</span>
+              </p>
+              <p class="cart__description__text">
+                <small class="text-muted">Las predicciones podrían variar</small>
+              </p>
+              <button class="cart__button" (click)="removeItem(item.id)" mat-mini-fab color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carrito__pay">
+      <div class="carrito__pay__flights">
+        <mat-card *ngFor="let item of shoppingCart.cartList" class="carrito__pay__flights__card">
+          <mat-card-title-group>
+            <mat-card-subtitle>Vuelo a: <span class="carrito__pay__paid__card-intro-info">{{item.destination}}</span> </mat-card-subtitle>
+            <mat-card-subtitle>Origen: <span class="carrito__pay__paid__card-intro-info">{{item.origin}}</span></mat-card-subtitle>
+            <img mat-card-sm-image src={{item.companyLogo}}>
+          </mat-card-title-group>
+          <mat-card-content>
+            <mat-card-subtitle>Precio: <span class="carrito__pay__paid__card-intro-price">{{item.price}} €</span></mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="carrito__pay__paid">
+        <mat-card class="carrito__pay__paid__card">
+          <mat-card-title-group class="carrito__pay__paid__card-intro">
+            <mat-card-subtitle> Número de vuelos: <span class="carrito__pay__paid__card-intro-info">{{shoppingCart.cartList.length}}</span></mat-card-subtitle>
+          </mat-card-title-group>
+          <mat-card-content>
+            <mat-card-subtitle> Total: <span class="carrito__pay__paid__card-intro-price">{{shoppingCart.priceList}} €</span></mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="carrito__pay__paid__card">
+          <mat-card-title-group class="carrito__pay__paid__card-intro">
+          </mat-card-title-group>
+          <mat-card-content>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Código de descuento</mat-label>
+              <input matInput value="UPFLY">
+            </mat-form-field>
+            <app-button (click)="newPriceFunction()" [name]="'Aplicar'"></app-button>
+            <mat-card-subtitle *ngIf="showDiscount"> Total con descuento: <span class="carrito__pay__paid__card-intro-priceOff">{{newPrice}} €</span></mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+        <mat-accordion class="carrito__pay__paid__accordion">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Pago con tarjeta
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]="cardForm" class="example-form">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Número de tarjeta</mat-label>
+                <input type="number" matInput placeholder="..." formControlName ="number">
+                <!-- [value]="cardForm.get('number')?.value -->
+              </mat-form-field>
+              <div class="carrito__pay__paid__accordion-card-container">
+                <img class="carrito__pay__paid__accordion-card-logo"src="{{cardForm.value.number | creditCard}}">
+              </div>
+            </form>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>paypal</mat-icon>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a class="carrito__pay__paid__paypal" href="">Ir a PayPal</a>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <app-button [name]="'Pagar'" (click)="paypmentProcess()"></app-button>
+      </div>
+    </div>
+  </div>
+</ng-template>

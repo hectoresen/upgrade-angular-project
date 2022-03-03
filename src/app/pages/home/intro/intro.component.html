@@ -1,0 +1,237 @@
+<div [ngClass]="{'dark-mode':darkTheme }">
+  <mat-accordion class="dark-mode-toggle" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+      </mat-expansion-panel-header>
+      <div class="dark-mode-toggle-btn">
+        <button (click)="darkMode()">
+          <mat-icon [ngClass]="{'dark-mode-toggle-btn-icon': iconActive}">format_color_fill</mat-icon>
+        </button>
+        <app-translate></app-translate>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <section class="main-offers">
+    <div class="main-offers__container">
+      <div [ngClass]="{'main-offers__container-imgoff' : !darkTheme, 'main-offers__container-imgoffdark': darkTheme}">
+        <img src="../../../../assets/Estas navidades.jpg">
+      </div>
+      <div [ngClass]="{'main-offers__container-imgoff' : !darkTheme, 'main-offers__container-imgoffdark': darkTheme}">
+        <img src="../../../../assets/Tus viajes con upgradefly.jpg">
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid cards-upgradefly">
+    <section>
+      <div class="row">
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div class="align-self-center">
+                    <i class="fas fa-pencil-alt text-info fa-3x me-4">
+                      <fa-icon [icon]="faMapSigns"></fa-icon>
+                    </i>
+                  </div>
+                  <div>
+                    <h4>{{'total.visits' | translate}}</h4>
+                    <p class="mb-0">{{'more.than.visited' | translate}}</p>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0">18,300</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div class="align-self-center">
+                    <i class="far fa-comment-alt text-warning fa-3x me-4">
+                      <fa-icon [icon]="faPlaneDeparture"></fa-icon>
+                    </i>
+                  </div>
+                  <div>
+                    <h4>{{'main.asset' | translate}}</h4>
+                    <p class="mb-0">{{'more.than.chosed' | translate}}</p>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0">3,474</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div class="align-self-center">
+                    <i class="far fa-comment-alt text-danger fa-3x me-4">
+                      <fa-icon [icon]="faHeart"></fa-icon>
+                    </i>
+                  </div>
+                  <div>
+                    <h4>{{'client.fav' | translate}}</h4>
+                    <p class="mb-0">{{'customers.voted' | translate}}</p>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0">94 %</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div class="align-self-center">
+                    <i class="far fa-comment-alt text-success fa-3x me-4">
+                      <fa-icon [icon]="faChartPie"></fa-icon>
+                    </i>
+                  </div>
+                  <div>
+                    <h4>{{'repeat.customers' | translate}}</h4>
+                    <p class="mb-0">{{'repeat.customers.occasions' | translate}}</p>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0">70 %</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+<div class="aboutUpgrade">
+  <h3 [ngClass]="{'aboutUpgrade__main-text' : !darkTheme, 'aboutUpgrade__main-textDark': darkTheme}">{{'about.upgradefly' | translate}}</h3>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="aboutUpgrade__title">
+          {{'is.upgrade' | translate}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="aboutUpgrade__card">
+        <div class="col-xl-8 col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div>
+                    <h4>{{'best.price' | translate}}</h4>
+                    <h4>{{'work.sector' | translate}}</h4>
+                    <h4>{{'incredible.prices' | translate}}</h4>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <i class="far fa-comment-alt text-info fa-3x me-4">
+                    <fa-icon [icon]="faPlane"></fa-icon>
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="aboutUpgrade__title">
+          {{'how.to.use' | translate}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="aboutUpgrade__card">
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div>
+                    <h4>{{'easy.platform' | translate}}</h4>
+                    <h4>{{'offers.avaiable' | translate}}</h4>
+                    <h4>{{'in.addition' | translate}}</h4>
+                    <h4>{{'waitting.for' | translate}}</h4>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <i class="far fa-comment-alt text-info fa-3x me-4">
+                    <fa-icon [icon]="faRocket"></fa-icon>
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="aboutUs">
+  <h3 [ngClass]="{'aboutUpgrade__main-text' : !darkTheme, 'aboutUpgrade__main-textDark': darkTheme}">{{'about.us' | translate}}</h3>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="aboutUs__title">
+          Héctor
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="aboutUs__card">
+        <mat-card class="example-card aboutUs__card-1">
+          <mat-card-title-group>
+            <mat-card-title>Co-Fundador de UpgradeFly</mat-card-title>
+            <mat-card-subtitle>Gitlab : @Hectoresen </mat-card-subtitle>
+            <img mat-card-xl-image
+              src="https://cdn.discordapp.com/attachments/896279363752980480/929028720432382082/18623278_10212652536606769_8351649850032531155_o.jpg">
+          </mat-card-title-group>
+          <mat-card-content>
+            <h4>Apasionado de los gatos, deporte al aire libre y.. cervezas!</h4>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="aboutUpgrade__title">
+          Jose
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="aboutUs__card">
+      <mat-card class="example-card aboutUs__card-1">
+        <mat-card-title-group>
+          <mat-card-title>Co-Fundador de UpgradeFly</mat-card-title>
+          <mat-card-subtitle>Gitlab : @Deproweb </mat-card-subtitle>
+          <img mat-card-xl-image
+            src="https://cdn.discordapp.com/attachments/846417268506099735/929032210349170709/WhatsApp_Image_2022-01-07_at_16.21.28.jpeg">
+        </mat-card-title-group>
+        <mat-card-content>
+          <h4>Apasionado de los juegos de mesa, los videojuegos y la lectura. </h4>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+</div>

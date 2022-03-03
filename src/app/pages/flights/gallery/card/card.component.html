@@ -1,0 +1,35 @@
+
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar [ngClass]="{'card__header-ryanair': ryanair, 'card__header-vueling': vueling, 'card__header-iberia' : iberia}"></div>
+    <mat-card-title>Vuelo: {{item.id}}</mat-card-title>
+    <mat-card-subtitle><b>Destino: </b> {{item.destination}}</mat-card-subtitle>
+    <mat-card-subtitle><b>Origen </b>: {{item.origin}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="card__img" mat-card-image
+    src= {{item.cityImg}}
+    alt="Photo of a plane">
+  <mat-card-content>
+    <p><b>Precio: </b>{{item.price | pipePrice}}</p>
+    <p> <b> Fecha: </b>{{item.flightData}}</p>
+    <p *ngIf="showMore"> <b>Compañía: </b>{{item.company}}</p>
+    <p *ngIf="showMore"> <b>Hora de salida: </b>{{item.departureTime}}</p>
+    <p *ngIf="showMore"> <b>Hora de llegada: </b>{{item.arrivalTime}}</p>
+    <p *ngIf="showMore && item.directFlight"> <span class="card__directFlight">Vuelo directo</span></p>
+    <p *ngIf="showMore && !item.directFlight"> <span class="card__stopoverflight">Vuelo con escalas</span></p>
+    <p *ngIf="showMore && !item.directFlight"> <span class="card__scales">Escala en: </span>{{item.scales.firstScale}}</p>
+    <p *ngIf="showMore && !item.directFlight && item.scales.secondScale"> <span class="card__scales">Segunda escala en: </span>{{item.scales.secondScale}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- Botón para carrito -->
+    <button (click)="addToCart() "mat-icon-button color="warn"
+      aria-label="favorite-button">
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </button>
+    <button (click)="showOrNot()" mat-button>{{titleShow}}</button>
+    <button *ngIf="showMore" routerLink="{{item.id}}" mat-button>Ir a oferta <mat-icon>arrow_right_alt</mat-icon>
+      </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,54 @@
+@import '../../../../styles/_variables';
+
+.mat{
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  &__link{
+      text-decoration: none;
+  }
+
+  &__div{
+    width: 100%;
+
+    padding: 1%;
+
+    display: flex;
+    justify-content: center;
+
+    & a{
+      text-decoration: none;
+    }
+  }
+
+}
+
+.form {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 5px solid #FBD399;
+  background-color: #f1dca32a;
+
+  width: 60%;
+  max-width: 500px;
+
+  padding: 25px;
+
+  &__div__mat {
+    width: 60%;
+  }
+
+  &__full-width {
+    width: 60%;
+    min-width: 200px;
+  }
+
+  & h3{
+    font-weight: bold;
+  }
+}
